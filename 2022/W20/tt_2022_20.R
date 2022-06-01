@@ -64,9 +64,13 @@ world_map = ggplot() +
     aes(long, lat, map_id = artist_country, fill = total_points)
   ) +
   scale_fill_viridis() + 
-  theme_void() + 
-  theme(panel.background = element_rect(fill = 'white', color = 'white')) + 
-  theme(plot.background = element_rect(fill = 'white', color = 'white'))
+  theme_pubr() + 
+  theme(legend.position = 'right') + 
+  theme(axis.line = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title = element_blank(),
+        axis.text = element_blank())
+  world_map
 
 ggsave(plot = world_map,
        filename = '2022/W20/viz/map_votes.png',
