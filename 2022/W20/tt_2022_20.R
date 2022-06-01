@@ -64,10 +64,14 @@ world_map = ggplot() +
     aes(long, lat, map_id = artist_country, fill = total_points)
   ) +
   scale_fill_viridis() + 
-  theme_void()
+  theme_void() + 
+  theme(panel.background = element_rect(fill = 'white', color = 'white')) + 
+  theme(plot.background = element_rect(fill = 'white', color = 'white'))
 
 ggsave(plot = world_map,
-       filename = '2022/W20/viz/map_votes.png')
+       filename = '2022/W20/viz/map_votes.png',
+       width = 9,
+       height = 6)
 
 # bar plot ------------------------------------------------------------------------------------
 bar_plot_2022_final = euro_cleaned |>
@@ -90,6 +94,6 @@ bar_plot_2022_final
 
 ggsave(plot = bar_plot_2022_final,
        filename = '2022/W20/viz/bar_plot_2022_final.png',
-       height = '10',
-       width = '8',
+       height = 10,
+       width = 8,
        dpi = 600)
